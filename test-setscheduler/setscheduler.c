@@ -19,7 +19,7 @@ int main(int argc, char* argv[]){
         printf("errno is %d",errno);
         return 1;
     } else {
-        printf("sched_setscheduler success for %d",pid);
+        printf("sched_setscheduler success for %d\n",pid);
     }
     return 0;
 }
