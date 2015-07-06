@@ -21,7 +21,7 @@ int main(int argc, char* argv[]){
         printf("errno is %d",errno);
         return 1;
     } else {
-        printf("sched_setscheduler success for %d",pid);
+        printf("sched_setscheduler success for %d\n",pid);
     }
 
     ret = setpriority(PRIO_PROCESS,pid,-20);
