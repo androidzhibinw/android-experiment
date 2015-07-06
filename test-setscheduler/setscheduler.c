@@ -3,6 +3,8 @@
 #include <unistd.h>
 #include <sched.h>
 #include <errno.h>
+#include <sys/time.h>
+#include <sys/resource.h>
 int main(int argc, char* argv[]){
     if(argc!=2){
         printf("Usage setschedular pid\n");
@@ -21,5 +23,16 @@ int main(int argc, char* argv[]){
     } else {
         printf("sched_setscheduler success for %d",pid);
     }
+
+    ret = setpriority(PRIO_PROCESS,pid,-20);
+    if (ret !=0) {
+        printf("setpriority fail\n");
+        printf("errno is %d",errno);
+        return 1;
+    } else {
+        printf("setpriority success\n");
+    }
+
+
     return 0;
 }
